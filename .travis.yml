@@ -6,11 +6,24 @@ jobs:
     - os: osx
       osx_image: xcode12.5
       env:
-        - SCENARIO=hostmachine1
-before_install: []
+        - SCENARIO=no_dotfiles
+    - os: osx
+      osx_image: xcode12.5
+      env:
+        - SCENARIO=with_dotfiles
+    - os: osx
+      osx_image: xcode12.5
+      env:
+        - SCENARIO=with_dotfiles_force
+before_install:
+  - rm -rf ~/.homesick
+  - touch ~/.bashrc
 install:
   - sudo python3 -m pip install poetry
   - poetry install
 script:
   - poetry run molecule lint
   - poetry run molecule test -s "${SCENARIO}"
+notifications:
+  slack:
+    secure: GK8e/n7VXBbfp5FgRxfXR3TaEGddSaO/luHl7G1WC3owrLe4WjEvNbOLEWtFvkKN8AkGXnRQrc0K3Ac9ubO55786l0vDWc1au/G5QQG/XoI1nLhHWX6fY1KpcENX6ACjWNAQohMWjTouL01nZIQxxrPVTErVLJO4V8ZRwyfD+L7Z9G8UkvlntWTZ19mJ7ddgqLxB7rI7W5RE7ADRWRHfnm+NWd4xm0QGXf8cc4TiMlosJxuwnutuqccljAwTBvKmkOD1WiBgMEXgzkyxmEJZkGjUm7XE+XOo10y59SQ16IrL4Sllp4Fb4QIcClpjrwd5UzFhWZGVwgZFXVsKPMcj1uyVacD0h8ZTndagQsiirU3aXfxvp5bbYooACt9lFReOCDj0pH1lma0pJjn/+RBUvlFta19r/i4QOBguY45ORfdx2JmIikibYHRTzuL9Is9BqsnViM6LCjArVdmEYGFE74vP8IeyY2gVL8QD7PUSobDA7CFQOk8dGYjcrXyOvC5Hagx3Tq2aRSrow6DtYOPY3pYTDV8yoRa6RXaX3CmZnD4GIfNkAKlm8WOXeu2v8Tic7Ac3oJCa+MKThiY9C6Q3wEfJAxdpl0gLYZuv9R3g8Rd+ntba107zIbeizYZvBDKajkwxmn9Nfoo0LFWY8917caEJXEyEu36SGMx9p8X9v6A=

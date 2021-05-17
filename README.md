@@ -8,7 +8,10 @@
 - Travis CI: ![TravisCI](https://travis-ci.com/osx-provisioner/role-homeshick.svg?branch=production)
 - Github Actions: [![role-homeshick](https://github.com/osx-provisioner/role-homeshick/actions/workflows/push.yml/badge.svg?branch=production)](https://github.com/osx-provisioner/role-homeshick/actions/workflows/push.yml)
 
-Installs homeshick, and configures a user dotfiles repository.
+Ansible role that installs homeshick, and the specified dotfiles repository on OSX machines.
+
+### Notes:
+- See the [homeshick Github Repository](https://github.com/andsens/homeshick) for further details about this tool.
 
 Requirements
 ------------
@@ -18,22 +21,37 @@ None
 
 Role Variables
 --------------
+- `homeshick_user`:
+  - The user to become when installing the dotfiles and homeshick repos.
+- `homeshick_user_home`:
+  - The home directory where the dotfiles should be installed.
+- `homeshick_repository`:
+  - Specifies the location of the base homeshick repository.
+- `homeshick_version`:
+  - Specifies the version of homeshick to checkout.
+- `homeshick_dotfiles_repo`:
+  - Specifies the URL of a user dotfiles definition to install.
+- `homeshick_force`:
+  - When symlinking the dotfiles, overwrite any existing content.
 
-None   
+[See The Default Values](defaults/main.yml)
 
 Dependencies
 ------------
 
-None
+- elliotweiser.osx-command-line-tools
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: all
-      roles:
-         - { role: osx-provisioner.role-homeshick }
+```yaml
+- hosts: web
+  roles:
+  - role: osx_provisioner.homeshick
+    homeshick_dotfiles_repo: "https://github.com/niall-byrne/dotfiles.git"
+    homeshick_version: "v2.0.0"
+    homeshick_force: true
+```
 
 License
 -------

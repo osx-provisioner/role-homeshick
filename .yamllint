@@ -20,6 +20,7 @@ rules:
     level: error
   indentation:
     spaces: consistent
+    indent-sequences: true
   comments: disable
   comments-indentation: disable
   document-start: enable

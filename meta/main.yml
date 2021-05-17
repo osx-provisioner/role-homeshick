@@ -3,7 +3,7 @@ galaxy_info:
   role_name: homeshick
   namespace: osx_provisioner
   author: Niall Byrne
-  description: Installs homeshick, and configures a user dotfiles repository.
+  description: Ansible role that installs homeshick, and the specified dotfiles repository on OSX machines.
   company: Shared Vision Solutions
   license: MPL-2
   platforms:
@@ -15,4 +15,5 @@ galaxy_info:
   galaxy_tags:
     - osx
 
-dependencies: []
+dependencies:
+  - elliotweiser.osx-command-line-tools

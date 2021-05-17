@@ -2,9 +2,11 @@
 - name: Converge
   hosts: all
   connection: local
-  vars:
-    test: true
   tasks:
+
+    - name: Load Scenario Variables
+      include_vars: vars/main.yml
+
     - name: "Include osx_provisioner.homeshick"
       ansible.builtin.include_role:
         name: "osx_provisioner.homeshick"

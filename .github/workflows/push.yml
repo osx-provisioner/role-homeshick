@@ -40,9 +40,6 @@ jobs:
       - name: Build -- Run Linter
         run: |
           poetry run molecule lint
-      - name: Build -- Run docker1 Scenario
-        run: |
-          poetry run molecule test -s docker1
 
       - name: Build -- Report Job Status (Success)
         run: |
