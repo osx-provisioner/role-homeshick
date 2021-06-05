@@ -2,16 +2,16 @@
 
 ### Master:
 - Travis CI: ![TravisCI](https://travis-ci.com/osx-provisioner/role-homeshick.svg?branch=master)
-- Github Actions: [![role-homeshick](https://github.com/osx-provisioner/role-homeshick/actions/workflows/push.yml/badge.svg?branch=master)](https://github.com/osx-provisioner/role-homeshick/actions/workflows/push.yml)
+- GitHub Actions: [![role-homeshick](https://github.com/osx-provisioner/role-homeshick/actions/workflows/push.yml/badge.svg?branch=master)](https://github.com/osx-provisioner/role-homeshick/actions/workflows/push.yml)
 
 ### Production:
 - Travis CI: ![TravisCI](https://travis-ci.com/osx-provisioner/role-homeshick.svg?branch=production)
-- Github Actions: [![role-homeshick](https://github.com/osx-provisioner/role-homeshick/actions/workflows/push.yml/badge.svg?branch=production)](https://github.com/osx-provisioner/role-homeshick/actions/workflows/push.yml)
+- GitHub Actions: [![role-homeshick](https://github.com/osx-provisioner/role-homeshick/actions/workflows/push.yml/badge.svg?branch=production)](https://github.com/osx-provisioner/role-homeshick/actions/workflows/push.yml)
 
 Ansible role that installs homeshick, and the specified dotfiles repository on OSX machines.
 
 ### Notes:
-- See the [homeshick Github Repository](https://github.com/andsens/homeshick) for further details about this tool.
+- See the [homeshick GitHub Repository](https://github.com/andsens/homeshick) for further details about this tool.
 
 Requirements
 ------------
@@ -28,7 +28,7 @@ Role Variables
 - `homeshick_repository`:
   - Specifies the location of the base homeshick repository.
 - `homeshick_version`:
-  - Specifies the version of homeshick to checkout.
+  - Specifies the version of homeshick to check out.
 - `homeshick_dotfiles_repo`:
   - Specifies the URL of a user dotfiles definition to install.
 - `homeshick_force`:
