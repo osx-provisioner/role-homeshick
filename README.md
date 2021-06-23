@@ -1,12 +1,10 @@
 # role-homeshick
 
 ### Master:
-- Travis CI: ![TravisCI](https://travis-ci.com/osx-provisioner/role-homeshick.svg?branch=master)
-- GitHub Actions: [![role-homeshick](https://github.com/osx-provisioner/role-homeshick/actions/workflows/push.yml/badge.svg?branch=master)](https://github.com/osx-provisioner/role-homeshick/actions/workflows/push.yml)
+[![role-homeshick](https://github.com/osx-provisioner/role-homeshick/actions/workflows/push.yml/badge.svg?branch=master)](https://github.com/osx-provisioner/role-homeshick/actions/workflows/push.yml)
 
 ### Production:
-- Travis CI: ![TravisCI](https://travis-ci.com/osx-provisioner/role-homeshick.svg?branch=production)
-- GitHub Actions: [![role-homeshick](https://github.com/osx-provisioner/role-homeshick/actions/workflows/push.yml/badge.svg?branch=production)](https://github.com/osx-provisioner/role-homeshick/actions/workflows/push.yml)
+[![role-homeshick](https://github.com/osx-provisioner/role-homeshick/actions/workflows/push.yml/badge.svg?branch=production)](https://github.com/osx-provisioner/role-homeshick/actions/workflows/push.yml)
 
 Ansible role that installs homeshick, and the specified dotfiles repository on OSX machines.
 
@@ -56,7 +54,7 @@ Example Playbook
 License
 -------
 
-MPL-2
+MIT
 
 Author Information
 ------------------
