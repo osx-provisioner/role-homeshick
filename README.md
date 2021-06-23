@@ -56,6 +56,8 @@ License
 
 MIT
 
+(homeshick is also licensed as MIT)
+
 Author Information
 ------------------
 
