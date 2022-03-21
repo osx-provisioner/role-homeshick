@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "role-homeshick"
-version = "0.1.2"
+version = "0.1.3"
 description = "Installs homeshick, and configures a user dotfiles repository."
 authors = ["Niall Byrne <niall@niallbyrne.ca>"]
 
