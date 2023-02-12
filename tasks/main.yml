@@ -2,7 +2,7 @@
 # tasks file for homeshick
 
 - name: Check for Homeshick Install
-  stat:
+  ansible.builtin.stat:
     path: "{{ homeshick_user_home }}/.homesick/repos/homeshick"
   register: homeshick_stat_result
   tags:
@@ -11,7 +11,7 @@
 - name: Clone Homeshick
   become: true
   become_user: "{{ homeshick_user }}"
-  git:
+  ansible.builtin.git:
     repo: https://github.com/andsens/homeshick.git
     dest: "{{ homeshick_user_home }}/.homesick/repos/homeshick"
     version: "{{ homeshick_version }}"
@@ -20,14 +20,15 @@
     - homeshick
 
 - name: Check if the user dotfiles were already installed
-  stat:
+  ansible.builtin.stat:
     path: "{{ homeshick_user_home }}/.homesick/repos/{{ homeshick_dotfiles_repo | lower | basename | replace('.git', '') }}"
   register: user_dot_files
 
 - name: Install User Dotfiles
   become: true
   become_user: "{{ homeshick_user }}"
-  command: "{{ homeshick_user_home }}/.homesick/repos/homeshick/bin/homeshick clone {{ homeshick_dotfiles_repo }}"
+  ansible.builtin.command: "{{ homeshick_user_home }}/.homesick/repos/homeshick/bin/homeshick clone {{ homeshick_dotfiles_repo }}"
+  changed_when: not user_dot_files.stat.exists and homeshick_dotfiles_repo
   when: not user_dot_files.stat.exists and homeshick_dotfiles_repo
   tags:
     - homeshick
@@ -35,7 +36,7 @@
 - name: Link Install Dotfiles (Force)
   become: true
   become_user: "{{ homeshick_user }}"
-  command: "{{ homeshick_user_home }}/.homesick/repos/homeshick/bin/homeshick link -vf {{ homeshick_dotfiles_repo | lower | basename | replace('.git', '') }}"
+  ansible.builtin.command: "{{ homeshick_user_home }}/.homesick/repos/homeshick/bin/homeshick link -vf {{ homeshick_dotfiles_repo | lower | basename | replace('.git', '') }}"
   register: homeshick_install_command
   changed_when: "'symlink' in homeshick_install_command.stdout"
   when: homeshick_dotfiles_repo and homeshick_force
@@ -45,7 +46,7 @@
 - name: Link Install Dotfiles (Without Force)
   become: true
   become_user: "{{ homeshick_user }}"
-  command: "{{ homeshick_user_home }}/.homesick/repos/homeshick/bin/homeshick link -v {{ homeshick_dotfiles_repo | lower | basename | replace('.git', '') }}"
+  ansible.builtin.command: "{{ homeshick_user_home }}/.homesick/repos/homeshick/bin/homeshick link -v {{ homeshick_dotfiles_repo | lower | basename | replace('.git', '') }}"
   register: homeshick_install_command
   changed_when: "'symlink' in homeshick_install_command.stdout"
   when: homeshick_dotfiles_repo and not homeshick_force

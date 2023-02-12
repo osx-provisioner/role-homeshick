@@ -5,7 +5,7 @@
   tasks:
 
     - name: Load Scenario Variables
-      include_vars: vars/main.yml
+      ansible.builtin.include_vars: vars/main.yml
 
     - name: "Include osx_provisioner.homeshick"
       ansible.builtin.include_role:

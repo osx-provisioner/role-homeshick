@@ -1,5 +1,5 @@
 ---
-collections:
+collections: []
 roles:
   - src: elliotweiser.osx-command-line-tools
     version: 2.3.0

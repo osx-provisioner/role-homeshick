@@ -1,15 +1,15 @@
 ---
 - name: Check the homeshick binary was installed
-  stat:
+  ansible.builtin.stat:
     path: "{{ homeshick_user_home }}/.homesick/repos/homeshick"
   register: homeshick_install
 
 - name: Check the user dotfiles were installed
-  stat:
+  ansible.builtin.stat:
     path: "{{ homeshick_user_home }}/.homesick/repos/{{ homeshick_dotfiles_repo | lower | basename | replace('.git', '') }}"
   register: dotfiles_install
 
 - name: Check the user .bashrc was installed
-  stat:
+  ansible.builtin.stat:
     path: "{{ homeshick_user_home }}/.bashrc"
   register: bashrc_symlink
