@@ -20,4 +20,4 @@ galaxy_info:
     - osx
 
 dependencies:
-  - elliotweiser.osx-command-line-tools
+  - role: elliotweiser.osx-command-line-tools

@@ -14,7 +14,7 @@ Ansible role that installs homeshick, and the specified dotfiles repository on O
 Requirements
 ------------
 
-None
+- [Git](https://git-scm.com/) must be present on the machine.  (See the [Dependencies](#Dependencies) section below.)
 
 
 Role Variables
@@ -37,7 +37,7 @@ Role Variables
 Dependencies
 ------------
 
-- elliotweiser.osx-command-line-tools
+- [elliotweiser.osx-command-line-tools](https://galaxy.ansible.com/elliotweiser/osx-command-line-tools)
 
 Example Playbook
 ----------------
