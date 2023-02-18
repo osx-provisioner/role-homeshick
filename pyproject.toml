@@ -9,7 +9,7 @@
     authors = ["Niall Byrne <niall@niallbyrne.ca>"]
     description = "Installs homeshick, and configures a user dotfiles repository."
     name = "role-homeshick"
-    version = "0.2.1"
+    version = "0.2.2"
 
     [tool.poetry.dependencies]
       python = ">=3.9.0,<4.0"
