@@ -43,7 +43,7 @@ Example Playbook
 ----------------
 
 ```yaml
-- hosts: web
+- hosts: all
   roles:
   - role: osx_provisioner.homeshick
     homeshick_dotfiles_repo: "https://github.com/niall-byrne/dotfiles.git"
